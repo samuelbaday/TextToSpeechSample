@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 ttsFunction();
             }
         },3000);
-
+        //this is to test merging the branches
         helloButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
