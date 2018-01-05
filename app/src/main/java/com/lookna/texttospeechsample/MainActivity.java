@@ -20,15 +20,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button helloButton = (Button) findViewById(R.id.hello_button);
-
+        Button helloButton = findViewById(R.id.hello_button);
+        //this is to test my new Github account
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 ttsFunction();
             }
         },3000);
-
+        //this is to test merging the branches
         helloButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("TTS", "This Language is not supported");
                     }
-                    speak("Turn right and go home, never come back");
+                    speak();
 
                 } else {
                     Log.e("TTS", "Initilization Failed!");
@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void speak(String text){
+    private void speak(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+            tts.speak("Turn right and go home, never come back", TextToSpeech.QUEUE_FLUSH, null, null);
         }else{
-            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+            tts.speak("Turn right and go home, never come back", TextToSpeech.QUEUE_FLUSH, null);
         }
     }
 
